@@ -3,8 +3,11 @@ function Node(data,left,right){
     this.data=data;
     this.left=left;
     this.right=right;
+    this.show=show;
 } 
-
+function show() {
+    return this.data;
+}
 function BinaryTree (){
     this.root=null;
     this.insert=insert;
@@ -37,12 +40,23 @@ function insert(data){
     }
 }
 
+function inOrder(node){
+    if(node){
+        inOrder(node.left)
+        console.log(node.show())
+        inOrder(node.right)
+    }
+}
+
 var binaryTree = new BinaryTree();
 
 
 binaryTree.insert(34)
-binaryTree.insert(39)
+binaryTree.insert(35)
+binaryTree.insert(36)
+binaryTree.insert(31)
 binaryTree.insert(30)
+inOrder(binaryTree.root)
 console.log(binaryTree)
 
 
